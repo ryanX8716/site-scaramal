@@ -3,570 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conflitos Ambientais e de Saúde | Pitanga, PR</title>
+    <title>Conflitos Ambientais e de Saúde - Pitanga/PR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Variáveis CSS */
-        :root {
-            --primary-color: #2c5aa0;
-            --secondary-color: #3a7ca5;
-            --accent-color: #81c3d7;
-            --text-color: #333;
-            --light-text: #fff;
-            --background: #f8f9fa;
-            --card-bg: #ffffff;
-            --success-color: #4caf50;
-            --warning-color: #ff9800;
-            --danger-color: #f44336;
-        }
-
-        /* Reset e estilos base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background);
+            font-family: 'Inter', sans-serif;
         }
-
-        /* Cabeçalho */
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-
-        nav ul li a {
-            color: var(--light-text);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        nav ul li a:hover {
-            opacity: 0.8;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light-text);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Conteúdo principal */
-        main {
-            max-width: 1200px;
-            margin: 5rem auto 2rem;
-            padding: 1rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: var(--secondary-color);
-            color: var(--light-text);
-            padding: 3rem 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placeholder-image-service.onrender.com/image/1200x400?prompt=Paisagem%20urbana%20de%20Pitanga%20com%20%C3%A9nfase%20em%20%C3%A1reas%20de%20enchentes%20e%20problemas%20ambientais&id=hero-bg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Problemas Section */
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-            font-size: 2rem;
-        }
-
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .problem-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .problem-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .problem-title {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 3rem 1rem;
-            margin-bottom: 3rem;
-            border-radius: 8px;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Soluções Section */
-        .solutions {
-            margin-bottom: 3rem;
-        }
-
-        .solution-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .solution-tab {
-            padding: 0.8rem 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .solution-tab.active {
-            border-bottom-color: var(--primary-color);
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .solution-content {
-            display: none;
-            padding: 1.5rem;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .solution-content.active {
-            display: block;
-        }
-
-        /* Galeria */
-        .gallery {
-            margin-bottom: 3rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            height: 200px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.7);
-            color: var(--light-text);
-            padding: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        /* Call to Action */
-        .cta {
-            background-color: var(--accent-color);
-            padding: 3rem 1rem;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 3rem;
-        }
-
-        .cta h2 {
-            color: var(--light-text);
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #1e3a72;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 2rem 1rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
-            color: var(--light-text);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .footer-section ul li a:hover {
-            opacity: 1;
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-
-            nav ul {
-                margin-top: 1rem;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
+        .hero-pattern {
+            background-color: #1e3a8a;
+            background-image: linear-gradient(to right, #1e40af, #1e3a8a);
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="header-container">
-            <div class="logo">Conflitos Ambientais - Pitanga/PR</div>
-            <button class="mobile-menu-btn">☰</button>
-            <nav>
-                <ul>
-                    <li><a href="#problemas">Problemas</a></li>
-                    <li><a href="#estatisticas">Estatísticas</a></li>
-                    <li><a href="#solucoes">Soluções</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#contato">Contato</a></li>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-xl font-bold text-blue-800">Pitanga/PR</h1>
+                <span class="mx-2 text-gray-400">|</span>
+                <p class="text-sm text-gray-600">Conflitos Ambientais e de Saúde</p>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#inicio" class="text-blue-700 hover:text-blue-900 font-medium">Início</a></li>
+                    <li><a href="#problemas" class="text-gray-600 hover:text-blue-700">Problemas</a></li>
+                    <li><a href="#impactos" class="text-gray-600 hover:text-blue-700">Impactos</a></li>
+                    <li><a href="#solucoes" class="text-gray-600 hover:text-blue-700">Soluções</a></li>
+                    <li><a href="#contato" class="text-gray-600 hover:text-blue-700">Contato</a></li>
                 </ul>
             </nav>
+            <button class="md:hidden text-blue-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Conflitos Ambientais e de Saúde em Pitanga, Paraná</h1>
-            <p>Um panorama dos desafios urbanos e ambientais que afetam a qualidade de vida da população</p>
-        </section>
-
-        <section id="problemas">
-            <h2 class="section-title">Principais Problemas</h2>
-            <div class="problems-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">💧</div>
-                    <h3 class="problem-title">Saneamento Básico</h3>
-                    <p>Cerca de 33% da população não tem acesso à coleta de esgoto, e a presença de agrotóxicos na água representa risco à saúde pública.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">🌊</div>
-                    <h3 class="problem-title">Enchentes e Inundações</h3>
-                    <p>Pitanga sofre com enchentes recorrentes que afetam centenas de residências na área urbana, causando danos materiais e riscos à saúde.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">⚠️</div>
-                    <h3 class="problem-title">Manejo de Águas Pluviais</h3>
-                    <p>Falta de sistema adequado para drenagem das águas da chuva, agravando os problemas de inundações na área urbana.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">🚫</div>
-                    <h3 class="problem-title">Contaminação por Agrotóxicos</h3>
-                    <p>Análises detectaram resíduos de agrotóxicos na água consumida pela população, representando riscos à saúde a longo prazo.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="estatisticas" class="stats">
-            <h2 class="section-title" style="color: white;">Estatísticas</h2>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">67%</div>
-                    <p>da população com coleta de esgoto</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">400+</div>
-                    <p>residências afetadas pelas enchentes</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <p>do esgoto coletado é tratado</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">1,97%</div>
-                    <p>das famílias sem canalização de água</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="solucoes" class="solutions">
-            <h2 class="section-title">Soluções Propostas</h2>
-            
-            <div class="solution-tabs">
-                <button class="solution-tab active" data-target="infraestrutura">Infraestrutura</button>
-                <button class="solution-tab" data-target="politicas">Políticas Públicas</button>
-                <button class="solution-tab" data-target="monitoramento">Monitoramento</button>
-            </div>
-            
-            <div id="infraestrutura" class="solution-content active">
-                <h3>Melhoria da Infraestrutura</h3>
-                <ul>
-                    <li>Construção de bacias de contenção para enchentes</li>
-                    <li>Implantação de sistema adequado de drenagem urbana</li>
-                    <li>Ampliação da rede de coleta e tratamento de esgoto</li>
-                    <li>Investimento em infraestrutura verde para melhorar o manejo das águas pluviais</li>
-                </ul>
-            </div>
-            
-            <div id="politicas" class="solution-content">
-                <h3>Políticas Públicas</h3>
-                <ul>
-                    <li>Implementação da Política Municipal de Saneamento Básico</li>
-                    <li>Fiscalização rigorosa do uso de agrotóxicos</li>
-                    <li>Programas de conscientização ambiental para a população</li>
-                    <li>Criação de planos de contingência para enchentes e desastres ambientais</li>
-                </ul>
-            </div>
-            
-            <div id="monitoramento" class="solution-content">
-                <h3>Monitoramento e Controle</h3>
-                <ul>
-                    <li>Análise regular da qualidade da água para consumo</li>
-                    <li>Sistema de alerta precoce para enchentes</li>
-                    <li>Monitoramento constante de áreas de risco ambiental</li>
-                    <li>Transparência e divulgação pública dos resultados de monitoramento</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="galeria" class="gallery">
-            <h2 class="section-title">Situação em Pitanga</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Enchente%20em%20%C3%A1rea%20urbana%20de%20Pitanga%20com%20%C3%A1gua%20inundando%20ruas%20e%20casas&id=flood1" alt="Enchente em área urbana de Pitanga com água inundando ruas e casas">
-                    <div class="gallery-caption">Enchente em área urbana de Pitanga</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Sistema%20de%20drenagem%20inadequado%20em%20Pitanga%20com%20bueiros%20entupidos&id=drainage1" alt="Sistema de drenagem inadequado em Pitanga com bueiros entupidos">
-                    <div class="gallery-caption">Sistema de drenagem inadequado</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Agricultura%20com%20uso%20de%20agrot%C3%B3xicos%20pr%C3%B3ximo%20a%20%C3%A1reas%20urbanas%20de%20Pitanga&id=agriculture1" alt="Agricultura com uso de agrotóxicos próximo a áreas urbanas de Pitanga">
-                    <div class="gallery-caption">Uso de agrotóxicos próximo a áreas urbanas</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Reuni%C3%A3o%20comunit%C3%A1ria%20sobre%20problemas%20ambientais%20em%20Pitanga&id=meeting1" alt="Reunião comunitária sobre problemas ambientais em Pitanga">
-                    <div class="gallery-caption">Reunião comunitária sobre problemas ambientais</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta">
-            <h2>Participe da Solução</h2>
-            <p>Juntos podemos transformar Pitanga em uma cidade mais sustentável e saudável</p>
-            <a href="#contato" class="cta-button">Entre em Contato</a>
-        </section>
-    </main>
-
-    <footer id="contato">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>Email: contato@pitangaambiente.org.br</p>
-                <p>Telefone: (42) 99999-9999</p>
-            </div>
-            <div class="footer-section">
-                <h3>Links Úteis</h3>
-                <ul>
-                    <li><a href="#">Prefeitura Municipal de Pitanga</a></li>
-                    <li><a href="#">Instituto Água e Saneamento</a></li>
-                    <li><a href="#">Ministério do Meio Ambiente</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Fontes</h3>
-                <ul>
-                    <li><a href="#">Dados sobre Saneamento em Pitanga</a></li>
-                    <li><a href="#">Estudos sobre Enchentes</a></li>
-                    <li><a href="#">Pesquisas sobre Qualidade da Água</a></li>
-                </ul>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-pattern text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl">
+                <h2 class="text-4xl font-bold mb-4">Conflitos Ambientais e de Saúde em Pitanga/PR</h2>
+                <p class="text-xl mb-8">Um olhar sobre os desafios urbanos e suas consequências para a população</p>
+                <a href="#problemas" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition">Conhecer os problemas</a>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2023 Conflitos Ambientais e de Saúde - Pitanga/PR. Todos os direitos reservados.</p>
+    </section>
+
+    <!-- Problems Section -->
+    <section id="problemas" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Principais Problemas Urbanos</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Problem 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Enchentes e Inundações</h3>
+                    </div>
+                    <p class="text-gray-600">Pitanga sofre com enchentes recorrentes que afetam centenas de residências na área urbana, causando danos materiais e riscos à saúde da população.</p>
+                </div>
+                
+                <!-- Problem 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Saneamento Básico</h3>
+                    </div>
+                    <p class="text-gray-600">Cerca de 33% da população não possui acesso à coleta de esgoto, e a presença de agrotóxicos na água representa risco à saúde pública.</p>
+                </div>
+                
+                <!-- Problem 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Manejo de Águas Pluviais</h3>
+                    </div>
+                    <p class="text-gray-600">Falta de sistema adequado para drenagem das águas da chuva, agravando os problemas de inundações na área urbana.</p>
+                </div>
+                
+                <!-- Problem 4 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Contaminação por Agrotóxicos</h3>
+                    </div>
+                    <p class="text-gray-600">Análises detectaram resíduos de agrotóxicos na água consumida pela população, representando riscos à saúde a longo prazo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impactos" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Impactos na Saúde e Meio Ambiente</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Consequências para a Saúde Pública</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <span>Doenças transmitidas pela água contaminada</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <span>Problemas respiratórios devido às enchentes e umidade</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <span>Intoxicação por agrotóxicos através da água e alimentos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <span>Problemas de saúde mental relacionados a perdas materiais nas enchentes</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Impactos Ambientais</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                            <span>Contaminação dos rios e lençóis freáticos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                            <span>Degradação do solo devido a enxurradas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                            <span>Perda de biodiversidade nos cursos d'água urbanos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                            <span>Assoreamento de rios e córregos</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4">Dados Estatísticos</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <p class="text-3xl font-bold text-blue-700">67%</p>
+                        <p class="text-gray-600">da população com coleta de esgoto</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-700">400+</p>
+                        <p class="text-gray-600">residências afetadas pelas enchentes</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-700">100%</p>
+                        <p class="text-gray-600">do esgoto coletado é tratado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solucoes" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Possíveis Soluções e Medidas</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800">Infraestrutura</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <div class="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <span>Construção de bacias de contenção</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <span>Sistema adequado de drenagem urbana</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                            </div>
+                            <span>Ampliação da rede de esgoto</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-green-800">Políticas Públicas</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                            <span>Implementação da Política Municipal de Saneamento</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                            <span>Fiscalização do uso de agrotóxicos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                            <span>Programas de conscientização ambiental</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-purple-800">Monitoramento</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <div class="bg-purple-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                            </div>
+                            <span>Análise regular da qualidade da água</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-purple-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                            </div>
+                            <span>Sistema de alerta para enchentes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-purple-100 p-1 rounded-full mr-3 mt-1">
+                                <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                            </div>
+                            <span>Monitoramento de áreas de risco</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Entre em Contato</h2>
+            
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 mb-2">Nome</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 mb-2">Mensagem</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition">Enviar Mensagem</button>
+                </form>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <h3 class="text-xl font-semibold mb-4">Fontes e Referências</h3>
+                <p class="text-gray-600 mb-2">Instituto Água e Saneamento - Dados sobre Pitanga/PR</p>
+                <p class="text-gray-600 mb-2">Prefeitura Municipal de Pitanga</p>
+                <p class="text-gray-600">Jornal Paraná Centro - Reportagens sobre enchentes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 Conflitos Ambientais e de Saúde - Pitanga/PR</p>
+            <p class="mt-2 text-blue-200">Site informativo sobre os problemas urbanos e ambientais do município</p>
         </div>
     </footer>
 
     <script>
-        // Script para as abas de soluções
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.solution-tab');
-            const contents = document.querySelectorAll('.solution-content');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const target = this.getAttribute('data-target');
-                    
-                    // Remove classe active de todas as abas e conteúdos
-                    tabs.forEach(t => t.classList.remove('active'));
-                    contents.forEach(c => c.classList.remove('active'));
-                    
-                    // Adiciona classe active à aba e conteúdo selecionados
-                    this.classList.add('active');
-                    document.getElementById(target).classList.add('active');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-            });
-            
-            // Menu móvel
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const nav = document.querySelector('nav ul');
-            
-            menuBtn.addEventListener('click', function() {
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
             });
         });
     </script>
